@@ -262,7 +262,6 @@ function AshenvaleProgress:OnUpdateUiWidget(event, widget)
         self.SharedState.HordeProgress = progress
     else
         error("Unknown kill progress widget: '" .. widgetVisualization.dynamicTooltip .. "'", 0)
-        return
     end
 
     self.SharedState.Timestamp = GetServerTime()
