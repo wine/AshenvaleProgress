@@ -234,7 +234,9 @@ function AshenvaleProgress:OnGuildRosterUpdate(event, canRequestRosterUpdate)
     for index = 1, guildMemberCount do
         local name, _, _, _, _, _, _, _, online = GetGuildRosterInfo(index)
         if online == false then
-            AshenvaleProgress:RemoveAddOnPlayer(name)
+            local nameSplitByRealmSeperator = string.gmatch(name, "([^-]+)")
+            local nameWithoutRealm = nameSplitByRealmSeperator()
+            AshenvaleProgress:RemoveAddOnPlayer(nameWithoutRealm)
         end
     end
 end
