@@ -1,0 +1,6 @@
+---@class SharedState
+---@field AddOnPlayers string[]
+---@field AllianceProgress number
+---@field HordeProgress number
+---@field Timestamp number
+---@field Reporter string
