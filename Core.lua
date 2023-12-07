@@ -29,6 +29,7 @@ function AshenvaleProgress:OnEnable()
     self:SendPingPacket()
 
     self:RegisterChatCommand("ashenvale", "OnAshenvaleCommand")
+    self:RegisterChatCommand("dumpashenvale", "OnDumpAshenvaleCommand")
 
     self:RegisterEvent("CHAT_MSG_GUILD", "OnChatMessageGuild")
     self:RegisterEvent("GUILD_ROSTER_UPDATE", "OnGuildRosterUpdate")
@@ -206,6 +207,11 @@ function AshenvaleProgress:OnAshenvaleCommand(input)
     for _, responseLine in ipairs(responseLines) do
         self:Print(responseLine)
     end
+end
+
+---@param input string?
+function AshenvaleProgress:OnDumpAshenvaleCommand(input)
+    DevTools_Dump(self.SharedState)
 end
 
 ---@param event string
